@@ -42,10 +42,16 @@ trait BaseActor[S <: ActorState, M <: ActorMessage] {
   protected def handleMessage(message: M): Either[String, S]
 }
 
-trait BaseCommand {
+// fixd her
+object BaseCommand {
 
   case class Move(id: String, to: Position) extends ActorMessage
+  case class Stop(id: String) extends ActorMessage
   case class UpdateStatus(id: String, status: ActorStatus) extends ActorMessage
   case class GetState(id: String, replyTo: ActorRef[ActorState]) extends ActorMessage
+
+}
+// hardly know her
+trait BaseCommand {
 
 }
